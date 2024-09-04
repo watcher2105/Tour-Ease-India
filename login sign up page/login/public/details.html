@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+  <link rel="stylesheet" href="detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <img src="../logo.png" alt="Logo">
+    </div>
+    <ul class="menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#">Profile Page</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Signup</a></li>
+      <li><a href="#">SOS</a></li>
+      <li><a href="../travelbot/AI.html">Travel Bot</a></li>
+      <li class="dropdown">
+        <a href="#"><i class="fa fa-caret-down"></i> Travel Tools</a>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="../Translator/translate.html">Translator</a></li>
+            <li><a href="instructions/ins.html">About India</a></li>
+            <li><a href="#">Splitwise</a></li>
+            <li><a href="#">Currency Converter</a></li>
+            <li><a href="#">Live Events</a></li>
+            <li><a href="#">Travel Insurance</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>User Details</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Mobile No.</th>
+        <th>Emergency Contact No.</th>
+        <th>Blood Group</th>
+        <th>Nationality</th>
+        <th>Purpose of Visit</th>
+        <th>Medical History</th>
+      </tr>
+      <tbody id="userDetails"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const email = urlParams.get('email');
+
+    fetch(`/user-details?name=${name}&email=${email}`)
+      .then(response => response.json())
+      .then(data => {
+        const userDetails = document.getElementById('userDetails');
+        data.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.gender}</td>
+            <td>${user.age}</td>
+            <td>${user.mobile}</td>
+            <td>${user.emergencyContact}</td>
+            <td>${user.bloodGrp}</td>
+            <td>${user.nationality}</td>
+            <td>${user.purpose}</td>
+            <td>${user.medicalHistory}</td>
+          `;
+          userDetails.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+  </script>
+</body>
+</html>

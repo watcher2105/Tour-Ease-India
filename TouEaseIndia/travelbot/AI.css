@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+header {
+    width: 250px;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 20px;
+    overflow-y: auto; /* Make the navbar scrollable */
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+}
+
+.menu {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.menu li {
+    width: 100%;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu li a:hover, .menu li.active a {
+    background: blueviolet;
+    border-radius: 5px;
+}
+
+.dropdown .sub-menu {
+    display: none;
+    background: #444;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.dropdown:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu ul li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sub-menu ul li a:hover {
+    background: blueviolet;
+}
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px); /* Ensure it fills the space to the right of the navbar */
+    overflow-y: auto;
+    height: 100vh; /* Ensure it takes full height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Chat Bot Container Styles */
+.container {
+    width: 100%; /* Make it fill the entire content area */
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #4b4646;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    overflow-y: auto;
+    height: 100%; /* Ensure it takes full height */
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #030303;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+#output {
+    background-color: #3329292f;
+    padding: 20px;
+    border-radius: 4px;
+    color: #f5efef;
+    overflow-y: auto;
+    max-height: 300px;
+    word-wrap: break-word;
+}
+
+/* Ensure images in the output box are displayed properly */
+#output img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Ensure links in the output box are styled properly */
+#output a {
+    color: #61dafb;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+#output a:hover {
+    text-decoration: underline;
+}
+
+/* Table styling */
+#output table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#output table, #output th, #output td {
+    border: 1px solid #ddd;
+}
+
+#output th, #output td {
+    padding: 8px;
+    text-align: left;
+}
+
+#output th {
+    background-color: #333;
+    color: white;
+}
+
+#output tr:nth-child(even) {
+    background-color: #444;
+}

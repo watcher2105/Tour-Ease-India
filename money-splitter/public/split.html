@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Splitter</title>
+    <link rel="stylesheet" href="split.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../logo.png" alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../About/about.html">About</a></li>
+                <li><a href="">Profile Page</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Signup</a></li>
+                <li><a href="#">SOS</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> Travel Tools</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="instructions/ins.html">About India</a></li>
+                            <li><a href="../Translator/translate.html">Translator</a></li>
+                            <li><a href="#">Currency Converter</a></li>
+                            <li><a href="#">Live Events</a></li>
+                            <li><a href="#">Travel Insurance</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        <div class="money-splitter">
+            <h1>Money Splitter</h1>
+            <div id="people-list"></div>
+            <button id="add-person" onclick="addPerson()">+ Add Person</button>
+            <button onclick="calculateSplit()">Split</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

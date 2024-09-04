@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+header {
+    width: 250px;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 20px;
+    overflow-y: auto; /* Make the navbar scrollable */
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+}
+
+.menu {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.menu li {
+    width: 100%;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu li a:hover, .menu li.active a {
+    background: blueviolet;
+    border-radius: 5px;
+}
+
+.dropdown .sub-menu {
+    display: none;
+    background: #444;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.dropdown:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu ul li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sub-menu ul li a:hover {
+    background: blueviolet;
+}
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px); /* Ensure it fills the space to the right of the navbar */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Ensure it takes full height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.money-splitter {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.calculator {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.group-size-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-size-control button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.group-size-control input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+#people-list {
+    margin: 20px 0;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.person input {
+    margin-right: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}

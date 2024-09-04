@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI Demo</title>
+  <link rel="stylesheet" href="AI.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../logo.png" alt="Logo">
+      </div>
+      <ul class="menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../About/about.html">About</a></li>
+        <li><a href="">Profile Page</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+        <li><a href="#">SOS</a></li>
+        <li class="dropdown">
+            <a href="#"><i class="fa fa-caret-down"></i> Travel Tools</a>
+            <div class="sub-menu">
+                <ul>
+                    <li><a href="instructions/ins.html">About India</a></li>
+                    <li><a href="../Translator/translate.html">Translator</a></li>
+                    <li><a href="#">Splitwise</a></li>
+                    <li><a href="#">Currency Converter</a></li>
+                    <li><a href="#">Live Events</a></li>
+                    <li><a href="#">Travel Insurance</a></li>
+                </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="content">
+    <div class="container">
+      <h1>TRAVEL BOT</h1>
+      <p>This is a demo of travel bot that can help tourists to enhance their experience.</p>
+      <input type="text" id="questionInput" placeholder="Enter your question...">
+      <button id="generateButton">Generate</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+
+    const API_KEY = "your api key";
+
+    const genAI = new GoogleGenerativeAI(API_KEY);
+
+    function convertMarkdownToHtml(text) {
+        // Convert **bold** to <strong>bold</strong>
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Convert * bullet points to <ul><li>...</li></ul>
+        text = text.replace(/(?:^|\n)\*(.*?)(?=\n|$)/g, '<li>$1</li>');
+        text = text.replace(/<li>(.*?)<\/li>/g, '<ul><li>$1</li></ul>');
+
+        // Remove redundant <ul></ul> pairs
+        text = text.replace(/<\/ul><ul>/g, '');
+
+        return text;
+    }
+
+    async function run() {
+        const question = document.getElementById("questionInput").value.trim();
+
+        if (!question) {
+            alert("Please enter a question.");
+            return;
+        }
+
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+        try {
+            const result = await model.generateContent(question);
+            const response = await result.response;
+            const text = await response.text();
+
+            const convertedText = convertMarkdownToHtml(text);
+            document.getElementById("output").innerHTML = convertedText;
+        } catch (error) {
+            console.error("Error generating content:", error);
+            document.getElementById("output").innerText = "Error generating content. Please try again later.";
+        }
+    }
+
+    document.getElementById("generateButton").addEventListener("click", run);
+  </script>
+</body>
+</html>
