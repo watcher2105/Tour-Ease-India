@@ -1,13 +1,13 @@
- TourEaseIndia
+# TourEaseIndia
 TourEaseIndia is a travel companion web application designed to provide a safe, personalized, and enriching travel experience in India. The application combines innovative technology with cultural immersion to empower travelers to explore India's hidden gems responsibly.
 
- Technologies Used
-•	Frontend: HTML, CSS, JavaScript
-•	Backend: Node.js
-•	Database: SQL
-•	APIs:  gemini api , google translate api , twilo api , exchangerate api
+# Technologies Used
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js
+- Database: SQL
+- APIs:  gemini api , google translate api , twilo api , exchangerate api
 
- Installation
+# Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/TourEaseIndia.git
